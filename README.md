@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Tasqflow
 
 An elegant, secure, enterprise-grade team Kanban workspace and pipeline visualization engine. This is a fully containerized full-stack suite built using Next.js 14, Express, PostgreSQL, Prisma, and Redis.
@@ -121,3 +122,7 @@ npm test
 - **`GET /api/v1/projects/:id/stats`**
   - Retrieves calculated status distribution, priorities, and expired alert metrics.
   - Headers returning: `X-Cache: HIT` or `X-Cache: MISS` matching Redis expiration blocks.
+=======
+# tasqflow-tanushri-warhade
+TasqFlow is a full-stack Kanban task management web app built with Next.js 14, Express.js, PostgreSQL, Prisma, Redis, and Docker. It features JWT authentication, drag-and-drop task management, analytics dashboards, and a modern responsive SaaS UI.
+>>>>>>> c1b9ff8be477764bca6d981779949e120da01622
