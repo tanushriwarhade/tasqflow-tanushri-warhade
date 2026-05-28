@@ -1,0 +1,6 @@
+{
+  "name": "Tasqflow",
+  "description": "A collaborative enterprise-grade task and project management Kanban board with real-time stats and visual charts.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,22 @@
+{
+  "users": [
+    {
+      "id": "b34dcdfc-90eb-4de7-bc61-a17c2c6561fa",
+      "name": "Tanushri",
+      "email": "tanuwarhade@gmail.com",
+      "passwordHash": "ef797c8118f02dfb649607dd5d3f8c7623048c9c063d532cc95c5ed7a898a64f",
+      "createdAt": "2026-05-28T12:07:40.139Z"
+    }
+  ],
+  "projects": [
+    {
+      "id": "773b5ce7-0944-4841-8324-3796af4fa73a",
+      "name": "mmmmmmmm",
+      "description": "",
+      "colorTag": "#f59e0b",
+      "userId": "b34dcdfc-90eb-4de7-bc61-a17c2c6561fa",
+      "createdAt": "2026-05-28T12:07:55.299Z"
+    }
+  ],
+  "tasks": []
+}

@@ -1,0 +1,61 @@
+version: "3.8"
+
+services:
+  # Relational SQL Database Storage
+  postgres:
+    image: postgres:15-alpine
+    container_name: tasqflow-postgres
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres_password
+      POSTGRES_DB: tasqflow
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  # Solid-State Redis Cache Storage
+  redis:
+    image: redis:7-alpine
+    container_name: tasqflow-redis
+    restart: always
+    ports:
+      - "6379:6379"
+
+  # Solid-State Express REST Server
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: tasqflow-backend
+    restart: always
+    ports:
+      - "4000:4000"
+    environment:
+      PORT: 4000
+      NODE_ENV: development
+      DATABASE_URL: "postgresql://postgres:postgres_password@postgres:5432/tasqflow?schema=public"
+      REDIS_URL: "redis://redis:6379"
+      JWT_SECRET: "your_secure_production_secret_key"
+      JWT_EXPIRE: "24h"
+    depends_on:
+      - postgres
+      - redis
+
+  # Next.js SPA Frontend
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: tasqflow-frontend
+    restart: always
+    ports:
+      - "3001:3000" # Maps local port 3001 to container port 3000
+    environment:
+      NEXT_PUBLIC_API_URL: "http://localhost:4000/api/v1"
+    depends_on:
+      - backend
+
+volumes:
+  postgres_data:
